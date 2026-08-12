@@ -1,8 +1,8 @@
 import { AboutPage } from "@/components/localized-pages";
 import { pageMetadata } from "@/lib/i18n";
 
-export const metadata = pageMetadata("en", "about");
+export const metadata = pageMetadata("tr", "about");
 
 export default function Page() {
-  return <AboutPage locale="en" />;
+  return <AboutPage locale="tr" />;
 }

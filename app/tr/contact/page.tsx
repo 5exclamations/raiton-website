@@ -1,8 +1,8 @@
 import { ContactPage } from "@/components/localized-pages";
 import { pageMetadata } from "@/lib/i18n";
 
-export const metadata = pageMetadata("en", "contact");
+export const metadata = pageMetadata("tr", "contact");
 
 export default function Page() {
-  return <ContactPage locale="en" />;
+  return <ContactPage locale="tr" />;
 }

@@ -1,8 +1,8 @@
 import { GeneralTradingPage } from "@/components/localized-pages";
 import { pageMetadata } from "@/lib/i18n";
 
-export const metadata = pageMetadata("en", "generalTrading");
+export const metadata = pageMetadata("tr", "generalTrading");
 
 export default function Page() {
-  return <GeneralTradingPage locale="en" />;
+  return <GeneralTradingPage locale="tr" />;
 }

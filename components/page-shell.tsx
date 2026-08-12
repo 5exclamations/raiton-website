@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { LocaleHtmlLang } from "./locale-html-lang";
+import type { Locale } from "@/lib/i18n";
 
 type PageShellProps = {
   eyebrow: string;
@@ -10,12 +12,14 @@ type PageShellProps = {
   image: string;
   imageAlt: string;
   children: ReactNode;
+  locale: Locale;
 };
 
-export function PageShell({ eyebrow, title, intro, image, imageAlt, children }: PageShellProps) {
+export function PageShell({ eyebrow, title, intro, image, imageAlt, children, locale }: PageShellProps) {
   return (
     <>
-      <Header />
+      <LocaleHtmlLang locale={locale} />
+      <Header locale={locale} />
       <main>
         <section className="page-hero shell">
           <p className="eyebrow">{eyebrow}</p>
@@ -27,7 +31,7 @@ export function PageShell({ eyebrow, title, intro, image, imageAlt, children }: 
         </figure>
         {children}
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }
