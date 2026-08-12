@@ -46,7 +46,7 @@ button { font: inherit; }
 .mobile-menu { display: none; }
 
 .home-hero { position: relative; min-height: 100svh; overflow: hidden; background: #5b625f; color: var(--white); }
-.home-hero > img { object-fit: cover; object-position: center 58%; filter: saturate(.72) contrast(1.05); animation: heroIn 1.8s var(--ease) both; }
+.home-hero > img { object-fit: cover; object-position: center 52%; filter: saturate(.74) contrast(1.06); animation: heroIn 1.8s var(--ease) both; }
 .home-hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,14,13,.24) 10%, rgba(10,12,11,.06) 43%, rgba(8,10,9,.82) 100%), linear-gradient(90deg, rgba(8,10,9,.5), transparent 60%); }
 .home-hero-content { position: relative; z-index: 2; display: flex; min-height: 100svh; flex-direction: column; justify-content: flex-end; padding-top: 10rem; padding-bottom: clamp(2rem, 4vw, 3.5rem); }
 .hero-kicker { margin: 0 0 clamp(1.5rem, 3vw, 3rem); font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
@@ -219,7 +219,7 @@ button { font: inherit; }
   .mobile-menu nav span { color: #d68a61; font-size: .62rem; letter-spacing: .08em; }
   .mobile-menu > p { margin: 2rem 0 0; color: rgba(255,255,255,.5); font-size: .72rem; }
   .home-hero-content { padding-top: 7rem; padding-bottom: 1.5rem; }
-  .home-hero > img { object-position: 46% center; }
+  .home-hero > img { object-position: 57% center; }
   .home-hero h1 { max-width: 7ch; font-size: clamp(3.85rem, 18vw, 6.5rem); line-height: .78; }
   .hero-kicker { margin-bottom: 1.5rem; }
   .hero-bottom { grid-template-columns: 1fr auto; gap: 1rem; margin-top: 2.5rem; }

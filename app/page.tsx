@@ -17,7 +17,7 @@ export default function Home() {
       <Header overlay />
       <main>
         <section className="home-hero">
-          <Image src="/images/industrial-trade-terminal.jpg" fill priority sizes="100vw" alt="Industrial trade terminal with storage tanks, pipework, containers, cranes and processing buildings" />
+          <Image src="/images/diversified-trade-panorama.webp" fill priority sizes="100vw" alt="Contextual industrial panorama with trading goods, energy infrastructure and cargo logistics" />
           <div className="home-hero-shade" />
           <div className="home-hero-content shell">
             <p className="hero-kicker">Diversified trading company · Dubai, U.A.E.</p>
