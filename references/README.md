@@ -30,15 +30,27 @@ Focus on:
 
 ## Gunvor
 
-Focus on:
+Use primarily as a business/content reference for crude oil trading.
 
-- industrial feeling
-- commodity trading presentation
-- business-area structure
+Useful for:
+- industry terminology
+- restrained presentation of crude oil trading
+- information hierarchy for commodity trading
+
+Do NOT use Gunvor as the primary visual style reference.
+Do not reproduce maps, statistics, charts or business claims.
 
 ## Ennero
 
-Focus on:
+Use mainly as a business-structure reference.
 
-- smaller trading-company information architecture
-- how trading and logistics coexist in one corporate site
+Useful for:
+- combining trading and logistics on one website
+- service categorisation
+- industrial/maritime imagery
+- presenting several commodity categories
+
+Do NOT use Ennero as the main visual-design reference.
+
+The final RAITON website should feel considerably more refined,
+minimal and contemporary than Ennero.
