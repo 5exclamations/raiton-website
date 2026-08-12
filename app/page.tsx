@@ -17,11 +17,11 @@ export default function Home() {
       <Header overlay />
       <main>
         <section className="home-hero">
-          <Image src="/images/port-terminal.jpg" fill priority sizes="100vw" alt="Cargo vessels and containers at a working port" />
+          <Image src="/images/industrial-trade-terminal.jpg" fill priority sizes="100vw" alt="Industrial trade terminal with storage tanks, pipework, containers, cranes and processing buildings" />
           <div className="home-hero-shade" />
           <div className="home-hero-content shell">
-            <p className="hero-kicker">Trading company · Dubai, U.A.E.</p>
-            <h1>Trade moves<br />through here.</h1>
+            <p className="hero-kicker">Diversified trading company · Dubai, U.A.E.</p>
+            <h1><span>Trade.</span><br /><span>Energy.</span><br /><span>Logistics.</span></h1>
             <div className="hero-bottom">
               <p>General trading, physical crude oil trading and international logistics coordination.</p>
               <a className="down-link" href="#introduction" aria-label="Explore RAITON">
