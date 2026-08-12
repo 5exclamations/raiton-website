@@ -70,8 +70,9 @@ export function Header({ locale, overlay = false }: { locale: Locale; overlay?: 
   return (
     <header ref={headerRef} className={`site-header${overlay ? " site-header--overlay" : ""}${open ? " is-open" : ""}`}>
       <div className="header-inner">
-        <Link className="wordmark" href={localizedHref(locale, "/")} aria-label={dictionary.common.aria.home} onClick={() => setOpen(false)}>
-          <span className="wordmark-mark" aria-hidden="true" />
+        <Link className="header-logo" href={localizedHref(locale, "/")} aria-label={dictionary.common.aria.home} onClick={() => setOpen(false)}>
+          <span className="header-logo-symbol" aria-hidden="true" />
+          <span className="header-logo-wordmark" aria-hidden="true" />
         </Link>
         <div className="header-actions">
           <nav className="desktop-nav" aria-label={dictionary.common.aria.primaryNav}>

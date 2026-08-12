@@ -30,8 +30,9 @@ button { font: inherit; }
 .site-header { position: relative; z-index: 50; height: 6rem; background: var(--paper); border-bottom: 1px solid var(--line); }
 .site-header--overlay { position: absolute; inset: 0 0 auto; background: linear-gradient(to bottom, rgba(13, 18, 17, .68), transparent); border-bottom-color: rgba(255,255,255,.28); color: var(--white); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-inline: var(--gutter); }
-.wordmark { display: block; width: 7.15rem; line-height: 0; }
-.wordmark-mark { display: block; width: 100%; aspect-ratio: 1048 / 188; background: currentColor; mask: url("/brand/raiton-wordmark-dark.svg") center / contain no-repeat; }
+.header-logo { display: flex; flex: 0 0 auto; align-items: center; gap: .55rem; line-height: 0; }
+.header-logo-symbol { display: block; width: 1.9rem; aspect-ratio: 872 / 960; background: currentColor; mask: url("/brand/raiton-symbol.svg") center / contain no-repeat; }
+.header-logo-wordmark { display: block; width: 6.45rem; aspect-ratio: 1048 / 188; background: currentColor; mask: url("/brand/raiton-wordmark-dark.svg") center / contain no-repeat; }
 .header-actions { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
 .desktop-nav { display: flex; align-items: center; gap: clamp(.85rem, 1.8vw, 2.3rem); }
 .desktop-nav a { position: relative; font-size: .79rem; font-weight: 580; letter-spacing: .02em; }
@@ -224,7 +225,9 @@ button { font: inherit; }
 @media (max-width: 800px) {
   :root { --gutter: 1.25rem; --section: 6rem; }
   .site-header { height: 4.75rem; }
-  .wordmark { width: 6.4rem; }
+  .header-logo { gap: .5rem; }
+  .header-logo-symbol { width: 1.7rem; }
+  .header-logo-wordmark { width: 5.85rem; }
   .site-header.is-open { position: fixed; inset: 0 0 auto; background: var(--ink); color: var(--white); border: 0; }
   .desktop-nav { display: none; }
   .header-actions { gap: .75rem; }
