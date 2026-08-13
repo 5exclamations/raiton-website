@@ -1,15 +1,12 @@
-# RAITON production-domain checklist
+# RAITON production-domain configuration
 
-Complete these steps after the final production hostname is confirmed:
+Canonical hostname: `https://www.raitonllc.com`
 
-- Set one validated HTTPS production site URL in centralized site configuration.
-- Use that URL as Next.js `metadataBase`.
-- Emit canonical URLs for every English and Turkish route.
-- Add reciprocal `en` / `tr` hreflang alternates for equivalent routes.
-- Generate `sitemap.xml` with absolute production URLs for all public routes.
-- Add the absolute sitemap URL to `robots.txt`.
-- Verify redirects, canonical tags, hreflang tags, sitemap responses, robots rules and Open Graph previews on the deployed hostname.
+- The apex domain redirects permanently to the canonical `www` hostname.
+- `lib/site.ts` is the source of truth for the production URL, public email and public route paths.
+- Every indexable English and Turkish page emits a canonical URL plus reciprocal `en`, `tr` and `x-default` alternates.
+- `sitemap.xml` contains all indexable English and Turkish routes with absolute production URLs.
+- `robots.txt` references the production sitemap.
+- Open Graph and Twitter images use `public/brand/raiton-open-graph.jpg` and resolve through the production `metadataBase`.
 
-The candidate sharing image is available at `public/brand/raiton-open-graph.jpg`. Add it to Open Graph metadata after `metadataBase` is configured so crawlers receive an absolute image URL.
-
-Client-supplied items still pending publication: a public email address and any official social-media accounts.
+Public email: `sadig.i@raitonllc.com`

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { getDictionary, localizedHref, type Locale } from "@/lib/i18n";
+import { pagePaths } from "@/lib/site";
 import { MenuIcon } from "./icons";
 
 export function Header({ locale, overlay = false }: { locale: Locale; overlay?: boolean }) {
@@ -16,7 +17,7 @@ export function Header({ locale, overlay = false }: { locale: Locale; overlay?: 
   const links = [
     [dictionary.common.nav.about, "/about"],
     [dictionary.common.nav.generalTrading, "/general-trading"],
-    [dictionary.common.nav.offshore, "/crude-oil-trading"],
+    [dictionary.common.nav.offshore, pagePaths.offshore],
     [dictionary.common.nav.logistics, "/logistics"],
     [dictionary.common.nav.contact, "/contact"],
   ] as const;

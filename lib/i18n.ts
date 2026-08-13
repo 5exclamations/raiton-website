@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import {
+  absoluteUrl,
+  localizedPagePath,
+  OPEN_GRAPH_IMAGE_PATH,
+  type PageKey,
+} from "@/lib/site";
 
 export const locales = ["en", "tr"] as const;
 export type Locale = (typeof locales)[number];
-export type PageKey = "home" | "about" | "generalTrading" | "offshore" | "logistics" | "contact";
+export type { PageKey } from "@/lib/site";
 
 export const dictionaries = {
   en: {
@@ -157,7 +163,7 @@ export const dictionaries = {
       office: "Dubai office",
       address: ["Meydan Grandstand, 6th Floor", "Meydan Road", "Nad Al Sheba", "Dubai, U.A.E."],
       phone: "Phone",
-      note: "No email address or social media accounts have been supplied for publication.",
+      email: "Email",
     },
   },
   tr: {
@@ -312,7 +318,7 @@ export const dictionaries = {
       office: "Dubai ofisi",
       address: ["Meydan Grandstand, 6. Kat", "Meydan Road", "Nad Al Sheba", "Dubai, BAE"],
       phone: "Telefon",
-      note: "Yayımlanmak üzere bir e-posta adresi veya sosyal medya hesabı sağlanmamıştır.",
+      email: "E-posta",
     },
   },
 } as const;
@@ -329,15 +335,35 @@ export function localizedHref(locale: Locale, path: string) {
 export function pageMetadata(locale: Locale, page: PageKey): Metadata {
   const dictionary = getDictionary(locale);
   const title = dictionary.metadata[page];
+  const englishUrl = absoluteUrl(localizedPagePath("en", page));
+  const turkishUrl = absoluteUrl(localizedPagePath("tr", page));
+  const canonicalUrl = locale === "tr" ? turkishUrl : englishUrl;
+  const imageUrl = absoluteUrl(OPEN_GRAPH_IMAGE_PATH);
   return {
     title: page === "home" ? { absolute: title } : title,
     description: dictionary.metadata.description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: englishUrl,
+        tr: turkishUrl,
+        "x-default": englishUrl,
+      },
+    },
     openGraph: {
       title,
       description: dictionary.metadata.ogDescription,
       type: "website",
       locale: locale === "tr" ? "tr_TR" : "en_AE",
       siteName: "RAITON",
+      url: canonicalUrl,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: "RAITON" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: dictionary.metadata.ogDescription,
+      images: [imageUrl],
     },
   };
 }

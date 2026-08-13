@@ -7,13 +7,14 @@ import { Arrow } from "@/components/icons";
 import { LocaleHtmlLang } from "@/components/locale-html-lang";
 import { PageShell } from "@/components/page-shell";
 import { getDictionary, localizedHref, type Locale } from "@/lib/i18n";
+import { pagePaths, PHONE_HREF, PHONE_NUMBER, PUBLIC_EMAIL, WHATSAPP_HREF, WHATSAPP_NUMBER } from "@/lib/site";
 
 type LocalizedPageProps = { locale: Locale };
 
 export function HomePage({ locale }: LocalizedPageProps) {
   const dictionary = getDictionary(locale);
   const copy = dictionary.home;
-  const areaPaths = ["/general-trading", "/crude-oil-trading", "/logistics"] as const;
+  const areaPaths = [pagePaths.generalTrading, pagePaths.offshore, pagePaths.logistics] as const;
 
   return (
     <>
@@ -69,7 +70,7 @@ export function HomePage({ locale }: LocalizedPageProps) {
             <p className="eyebrow">{copy.oilEyebrow}</p>
             <h2>{copy.oilTitle[0]}<br />{copy.oilTitle[1]}</h2>
             <p>{copy.oilCopy}</p>
-            <Link className="text-link text-link--light" href={localizedHref(locale, "/crude-oil-trading")}>{copy.oilLink} <Arrow /></Link>
+            <Link className="text-link text-link--light" href={localizedHref(locale, pagePaths.offshore)}>{copy.oilLink} <Arrow /></Link>
           </div>
         </section>
 
@@ -202,11 +203,11 @@ export function ContactPage({ locale }: LocalizedPageProps) {
         <section className="contact-details shell">
           <div className="contact-location"><p className="eyebrow">{copy.office}</p><address>{copy.address.map((line) => <span key={line}>{line}<br /></span>)}</address></div>
           <div className="contact-actions">
-            <a href="tel:+971501794245"><span>{copy.phone}</span><strong>+971 50 179 4245</strong><Arrow /></a>
-            <a href="https://wa.me/447516673000" target="_blank" rel="noreferrer"><span>WhatsApp</span><strong>+44 7516 673000</strong><Arrow /></a>
+            <a href={PHONE_HREF}><span>{copy.phone}</span><strong>{PHONE_NUMBER}</strong><Arrow /></a>
+            <a className="contact-email" href={`mailto:${PUBLIC_EMAIL}`}><span>{copy.email}</span><strong>{PUBLIC_EMAIL}</strong><Arrow /></a>
+            <a href={WHATSAPP_HREF} target="_blank" rel="noreferrer"><span>WhatsApp</span><strong>{WHATSAPP_NUMBER}</strong><Arrow /></a>
           </div>
         </section>
-        <section className="contact-note shell"><p>{copy.note}</p></section>
       </main>
       <Footer locale={locale} />
     </>

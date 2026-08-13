@@ -36,7 +36,7 @@ WhatsApp:
 +44 7516 673000
 
 Email:
-Not provided yet.
+sadig.i@raitonllc.com
 
 Social media:
 Not provided yet.
@@ -48,10 +48,11 @@ Images:
 Client requested that we choose suitable professional images ourselves.
 
 Domain:
-Client prefers a .com domain connected to:
-RAITON
-RAITON LLC
-RAITON LLC FZ
+Canonical production hostname:
+https://www.raitonllc.com
+
+Apex redirect:
+https://raitonllc.com redirects to https://www.raitonllc.com
 
 Examples:
 Client has not provided preferred websites yet.

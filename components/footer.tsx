@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getDictionary, localizedHref, type Locale } from "@/lib/i18n";
+import { pagePaths, PHONE_HREF, PHONE_NUMBER, PUBLIC_EMAIL, WHATSAPP_HREF } from "@/lib/site";
 import { Arrow } from "./icons";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -8,7 +9,7 @@ export function Footer({ locale }: { locale: Locale }) {
   const links = [
     [dictionary.common.nav.about, "/about"],
     [dictionary.common.nav.generalTrading, "/general-trading"],
-    [dictionary.common.nav.offshore, "/crude-oil-trading"],
+    [dictionary.common.nav.offshore, pagePaths.offshore],
     [dictionary.common.nav.logistics, "/logistics"],
     [dictionary.common.nav.contact, "/contact"],
   ] as const;
@@ -24,8 +25,9 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-contact">
           <p className="eyebrow">{dictionary.common.directContact}</p>
-          <a href="tel:+971501794245">+971 50 179 4245</a>
-          <a href="https://wa.me/447516673000" target="_blank" rel="noreferrer">WhatsApp <Arrow /></a>
+          <a className="footer-phone" href={PHONE_HREF}>{PHONE_NUMBER}</a>
+          <a className="footer-email" href={`mailto:${PUBLIC_EMAIL}`}>{PUBLIC_EMAIL}</a>
+          <a className="footer-whatsapp" href={WHATSAPP_HREF} target="_blank" rel="noreferrer">WhatsApp <Arrow /></a>
         </div>
         <nav className="footer-nav" aria-label={dictionary.common.aria.footerNav}>
           {links.map(([label, href]) => <Link key={href} href={localizedHref(locale, href)}>{label}</Link>)}
