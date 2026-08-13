@@ -21,7 +21,7 @@ export function HomePage({ locale }: LocalizedPageProps) {
       <Header locale={locale} overlay />
       <main>
         <section className="home-hero">
-          <Image src="/images/diversified-trade-panorama.webp" fill priority sizes="100vw" alt={copy.heroAlt} />
+          <Image src="/images/diversified-trade-panorama-hd.webp" fill priority quality={88} sizes="(max-width: 800px) 180vh, 100vw" alt={copy.heroAlt} />
           <div className="home-hero-shade" />
           <div className="home-hero-content shell">
             <p className="hero-kicker">{copy.heroKicker}</p>
