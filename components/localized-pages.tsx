@@ -138,20 +138,77 @@ export function AboutPage({ locale }: LocalizedPageProps) {
   );
 }
 
+type ListItem = readonly [string, string];
+
+function NumberedList({ items }: { items: readonly ListItem[] }) {
+  return (
+    <div className="category-list">
+      {items.map(([title, itemCopy], index) => (
+        <article key={title}>
+          <span>0{index + 1}</span>
+          <h3>{title}</h3>
+          <p>{itemCopy}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function SpecSection({ eyebrow, title, items }: { eyebrow: string; title: readonly string[]; items: readonly ListItem[] }) {
+  return (
+    <section className="spec-section shell">
+      <div className="spec-heading">
+        <p className="eyebrow">{eyebrow}</p>
+        <h2>{title[0]}<br />{title[1]}</h2>
+      </div>
+      <div className="spec-grid">
+        {items.map(([itemTitle, itemCopy], index) => (
+          <article key={itemTitle}>
+            <span>0{index + 1}</span>
+            <h3>{itemTitle}</h3>
+            <p>{itemCopy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function StandardsBand({ eyebrow, title, copy, items }: { eyebrow: string; title: string; copy: string; items: readonly string[] }) {
+  return (
+    <section className="standards">
+      <div className="shell standards-inner">
+        <p className="eyebrow">{eyebrow}</p>
+        <div className="standards-main">
+          <h2>{title}</h2>
+          <p>{copy}</p>
+        </div>
+        <ul className="term-list">
+          {items.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export function GeneralTradingPage({ locale }: LocalizedPageProps) {
   const copy = getDictionary(locale).generalTrading;
   return (
     <PageShell locale={locale} eyebrow={copy.eyebrow} title={<>{copy.title[0]}<br />{copy.title[1]}</>} intro={copy.intro} image="/images/industrial-pipes.jpg" imageAlt={copy.imageAlt}>
+      <section className="editorial-section shell">
+        <p className="eyebrow">{copy.activity}</p>
+        <div className="editorial-main"><h2>{copy.statement}</h2><div className="prose">{copy.prose.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
+      </section>
       <section className="category-section shell">
         <div className="category-heading"><p className="eyebrow">{copy.categoriesEyebrow}</p><h2>{copy.categoriesTitle[0]}<br />{copy.categoriesTitle[1]}</h2></div>
-        <div className="category-list">
-          {copy.categories.map(([title, categoryCopy], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{categoryCopy}</p></article>)}
-        </div>
+        <NumberedList items={copy.categories} />
       </section>
       <section className="split-statement">
         <figure><Image src="/images/construction-materials.jpg" fill sizes="(max-width: 800px) 100vw, 50vw" alt={copy.materialsAlt} /></figure>
         <div><p className="eyebrow">{copy.scope}</p><h2>{copy.scopeTitle}</h2><p>{copy.scopeCopy}</p></div>
       </section>
+      <SpecSection eyebrow={copy.approachEyebrow} title={copy.approachTitle} items={copy.approach} />
+      <StandardsBand eyebrow={copy.standardsEyebrow} title={copy.standardsTitle} copy={copy.standardsCopy} items={copy.standardsList} />
       <ContactBand locale={locale} title={copy.contactTitle} />
     </PageShell>
   );
@@ -165,10 +222,21 @@ export function OffshorePage({ locale }: LocalizedPageProps) {
         <p className="eyebrow">{copy.activity}</p>
         <div className="editorial-main"><h2>{copy.statement}</h2><div className="prose">{copy.prose.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
       </section>
+      <SpecSection eyebrow={copy.scopeEyebrow} title={copy.scopeTitle} items={copy.scopeItems} />
       <section className="process-strip shell">
         <p className="eyebrow">{copy.sequence}</p>
-        <div className="process-line">{copy.steps.map((step, index) => <div key={step}><span>0{index + 1}</span><h3>{step}</h3></div>)}</div>
+        <div className="process-line process-line--four">{copy.steps.map((step, index) => <div key={step}><span>0{index + 1}</span><h3>{step}</h3></div>)}</div>
       </section>
+      <section className="split-statement split-statement--reverse">
+        <figure><Image src="/images/industrial-pipes.jpg" fill sizes="(max-width: 800px) 100vw, 50vw" alt={copy.counterpartiesAlt} /></figure>
+        <div>
+          <p className="eyebrow">{copy.counterpartiesEyebrow}</p>
+          <h2>{copy.counterpartiesTitle}</h2>
+          <p>{copy.counterpartiesCopy}</p>
+          <ul className="term-list">{copy.counterpartiesList.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+      </section>
+      <StandardsBand eyebrow={copy.standardsEyebrow} title={copy.standardsTitle} copy={copy.standardsCopy} items={copy.standardsList} />
       <ContactBand locale={locale} title={copy.contactTitle} />
     </PageShell>
   );
@@ -182,10 +250,16 @@ export function LogisticsPage({ locale }: LocalizedPageProps) {
         <p className="eyebrow">{copy.coordination}</p>
         <div className="editorial-main"><h2>{copy.statement}</h2><div className="prose">{copy.prose.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
       </section>
+      <section className="category-section shell">
+        <div className="category-heading"><p className="eyebrow">{copy.modesEyebrow}</p><h2>{copy.modesTitle[0]}<br />{copy.modesTitle[1]}</h2></div>
+        <NumberedList items={copy.modes} />
+      </section>
       <section className="logistics-detail shell">
         <figure><Image src="/images/port-terminal.jpg" fill sizes="(max-width: 800px) 100vw, 64vw" alt={copy.portAlt} /></figure>
         <div><p className="eyebrow">{copy.movement}</p><h2>{copy.movementTitle}</h2></div>
       </section>
+      <SpecSection eyebrow={copy.servicesEyebrow} title={copy.servicesTitle} items={copy.services} />
+      <StandardsBand eyebrow={copy.standardsEyebrow} title={copy.standardsTitle} copy={copy.standardsCopy} items={copy.standardsList} />
       <ContactBand locale={locale} title={copy.contactTitle} />
     </PageShell>
   );
