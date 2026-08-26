@@ -1,9 +1,10 @@
 export const SITE_URL = "https://www.raitonllc.com";
 export const PUBLIC_EMAIL = "sadig.i@raitonllc.com";
+export const SECONDARY_EMAIL = "ibadov.s@raitonllc.com";
 export const PHONE_NUMBER = "+971 50 179 4245";
 export const PHONE_HREF = "tel:+971501794245";
-export const WHATSAPP_NUMBER = "+44 7516 673000";
-export const WHATSAPP_HREF = "https://wa.me/447516673000";
+export const WHATSAPP_NUMBER = PHONE_NUMBER;
+export const WHATSAPP_HREF = "https://wa.me/971501794245";
 export const OPEN_GRAPH_IMAGE_PATH = "/brand/raiton-open-graph.jpg";
 
 export const pageKeys = ["home", "about", "generalTrading", "offshore", "logistics", "contact"] as const;

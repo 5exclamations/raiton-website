@@ -7,7 +7,7 @@ import { Arrow } from "@/components/icons";
 import { LocaleHtmlLang } from "@/components/locale-html-lang";
 import { PageShell } from "@/components/page-shell";
 import { getDictionary, localizedHref, type Locale } from "@/lib/i18n";
-import { pagePaths, PHONE_HREF, PHONE_NUMBER, PUBLIC_EMAIL, WHATSAPP_HREF, WHATSAPP_NUMBER } from "@/lib/site";
+import { pagePaths, PHONE_HREF, PHONE_NUMBER, PUBLIC_EMAIL, SECONDARY_EMAIL, WHATSAPP_HREF, WHATSAPP_NUMBER } from "@/lib/site";
 
 type LocalizedPageProps = { locale: Locale };
 
@@ -279,6 +279,7 @@ export function ContactPage({ locale }: LocalizedPageProps) {
           <div className="contact-actions">
             <a href={PHONE_HREF}><span>{copy.phone}</span><strong>{PHONE_NUMBER}</strong><Arrow /></a>
             <a className="contact-email" href={`mailto:${PUBLIC_EMAIL}`}><span>{copy.email}</span><strong>{PUBLIC_EMAIL}</strong><Arrow /></a>
+            <a className="contact-email" href={`mailto:${SECONDARY_EMAIL}`}><span>{copy.email}</span><strong>{SECONDARY_EMAIL}</strong><Arrow /></a>
             <a href={WHATSAPP_HREF} target="_blank" rel="noreferrer"><span>WhatsApp</span><strong>{WHATSAPP_NUMBER}</strong><Arrow /></a>
           </div>
         </section>
