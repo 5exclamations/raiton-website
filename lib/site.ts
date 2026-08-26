@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.raitonllc.com";
 export const PUBLIC_EMAIL = "sadig.i@raitonllc.com";
-export const SECONDARY_EMAIL = "ibadov.s@raitonllc.com";
+export const SECONDARY_EMAIL = "nariman.a@raitonllc.com";
 export const PHONE_NUMBER = "+971 50 179 4245";
 export const PHONE_HREF = "tel:+971501794245";
 export const WHATSAPP_NUMBER = PHONE_NUMBER;
