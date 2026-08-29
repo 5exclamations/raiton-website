@@ -37,6 +37,10 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="footer-bottom shell">
         <p>© {new Date().getFullYear()} RAITON L.L.C-FZ</p>
         <p>{dictionary.common.addressInline}</p>
+        <a className="footer-badge" href="https://exclamationdev.com/en/?ref=badge" target="_blank" rel="noopener">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://exclamationdev.com/badge/exclamation-dark.svg" alt="Developed by EXCLAMATION" width="316" height="24" />
+        </a>
       </div>
     </footer>
   );

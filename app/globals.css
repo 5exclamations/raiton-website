@@ -139,7 +139,9 @@ button { font: inherit; }
 .footer-nav a:hover, .footer-nav a:focus-visible { color: var(--white); }
 .footer-bottom { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; border-top: 1px solid rgba(255,255,255,.16); padding-top: 1.5rem; padding-bottom: 1.5rem; color: rgba(255,255,255,.42); font-size: .67rem; letter-spacing: .02em; }
 .footer-bottom p { margin: 0; }
-.footer-bottom p:last-child { text-align: right; }
+.footer-bottom p:last-of-type { text-align: right; }
+.footer-badge { grid-column: 1 / -1; margin-top: 1.4rem; line-height: 0; }
+.footer-badge img { width: 316px; max-width: 100%; height: auto; }
 
 .page-hero { display: grid; min-height: 38rem; grid-template-columns: 1.25fr 4.1fr 1.5fr; align-items: center; gap: 2rem; }
 .page-hero h1 { margin: 0; font-size: clamp(4rem, 8.8vw, 10rem); font-weight: 410; letter-spacing: -.078em; line-height: .83; }
@@ -314,7 +316,7 @@ button { font: inherit; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.16); padding-top: 2rem; }
   .footer-bottom { grid-template-columns: 1fr; }
-  .footer-bottom p:last-child { text-align: left; }
+  .footer-bottom p:last-of-type { text-align: left; }
   .page-hero { display: block; min-height: auto; padding-top: 6rem; padding-bottom: 4rem; }
   .page-hero h1 { margin: 2rem 0 3rem; font-size: clamp(3.8rem, 18vw, 6rem); }
   .page-hero-intro { max-width: 26rem; margin: 0 0 0 auto; }
